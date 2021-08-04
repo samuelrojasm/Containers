@@ -1,0 +1,12 @@
+#cloud-config
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3.... PIftx  user@example.com
+
+package_update: true
+packages:
+ - podman
+ - containerd
+ 
+runcmd:
+ - systemctl --user enable podman.socket
+ - sudo systemctl enable -s HUP ssh
